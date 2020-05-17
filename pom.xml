@@ -11,8 +11,8 @@
     <groupId>br.com.senior</groupId>
     <artifactId>senior-challenge</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>Senio Java Dev Challenge</name>
+    <packaging>jar</packaging>
+    <name>Senior Java Dev Challenge</name>
     <description>Prova para Desenvolvedor Backend Java</description>
 
     <properties>
@@ -163,6 +163,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>br.com.senior.challenge.SeniorChallengeApplication</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
