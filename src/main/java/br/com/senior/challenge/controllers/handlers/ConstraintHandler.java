@@ -19,7 +19,7 @@ class ConstraintHandler {
 
     private Class<?> clazz;
 
-    private ConstraintHandler(){
+    private ConstraintHandler() {
         //Utility Class
     }
 

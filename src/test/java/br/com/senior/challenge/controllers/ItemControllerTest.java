@@ -15,7 +15,6 @@ import org.springframework.hateoas.PagedModel;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -83,7 +82,7 @@ public class ItemControllerTest {
         Item itemToUpdate = read(mvcResult, Item.class);
         itemToUpdate.setName("nome do produto para teste alterado");
 
-        mvcResult = perform("/"+itemToUpdate.getId(), HttpMethod.PUT, itemToUpdate, status().isOk());
+        mvcResult = perform("/" + itemToUpdate.getId(), HttpMethod.PUT, itemToUpdate, status().isOk());
 
         Item itemUpdated = read(mvcResult, Item.class);
         assertThat(itemUpdated.getId()).isEqualTo(itemToUpdate.getId());
@@ -97,12 +96,12 @@ public class ItemControllerTest {
 
         Item itemToDelete = read(mvcResult, Item.class);
 
-        mvcResult = perform("/"+itemToDelete.getId(), HttpMethod.DELETE, itemToDelete, status().isOk());
+        mvcResult = perform("/" + itemToDelete.getId(), HttpMethod.DELETE, itemToDelete, status().isOk());
 
         Item itemDeleted = read(mvcResult, Item.class);
         assertThat(itemDeleted.getId()).isEqualTo(itemToDelete.getId());
 
-        perform("/"+itemDeleted.getId(), HttpMethod.GET, itemDeleted, status().isNotFound());
+        perform("/" + itemDeleted.getId(), HttpMethod.GET, itemDeleted, status().isNotFound());
     }
 
     @Test
@@ -112,12 +111,12 @@ public class ItemControllerTest {
 
         Item itemToDeactivate = read(mvcResult, Item.class);
 
-        mvcResult = perform("/"+itemToDeactivate.getId()+"/deactivate", HttpMethod.POST, itemToDeactivate, status().isOk());
+        mvcResult = perform("/" + itemToDeactivate.getId() + "/deactivate", HttpMethod.POST, itemToDeactivate, status().isOk());
 
         Item itemDeactivated = read(mvcResult, Item.class);
         assertThat(itemDeactivated.getActive()).isEqualTo(itemDeactivated.getActive());
 
-        mvcResult = perform("/"+itemToDeactivate.getId()+"/activate", HttpMethod.POST, itemToDeactivate, status().isOk());
+        mvcResult = perform("/" + itemToDeactivate.getId() + "/activate", HttpMethod.POST, itemToDeactivate, status().isOk());
 
         Item itemActivated = read(mvcResult, Item.class);
         assertThat(itemActivated.getActive()).isEqualTo(itemActivated.getActive());
@@ -130,7 +129,7 @@ public class ItemControllerTest {
 
         Item itemToDeactivate = read(mvcResult, Item.class);
 
-        perform("/"+itemToDeactivate.getId()+"/activate", HttpMethod.POST, itemToDeactivate, status().isUnprocessableEntity());
+        perform("/" + itemToDeactivate.getId() + "/activate", HttpMethod.POST, itemToDeactivate, status().isUnprocessableEntity());
     }
 
     @Test
@@ -140,12 +139,12 @@ public class ItemControllerTest {
 
         Item itemToDeactivate = read(mvcResult, Item.class);
 
-        mvcResult = perform("/"+itemToDeactivate.getId()+"/deactivate", HttpMethod.POST, itemToDeactivate, status().isOk());
+        mvcResult = perform("/" + itemToDeactivate.getId() + "/deactivate", HttpMethod.POST, itemToDeactivate, status().isOk());
 
         Item itemDeactivated = read(mvcResult, Item.class);
         assertThat(itemDeactivated.getActive()).isEqualTo(itemDeactivated.getActive());
 
-        perform("/"+itemToDeactivate.getId()+"/deactivate", HttpMethod.POST, itemToDeactivate, status().isUnprocessableEntity());
+        perform("/" + itemToDeactivate.getId() + "/deactivate", HttpMethod.POST, itemToDeactivate, status().isUnprocessableEntity());
     }
 
     private Item getDefaultItem() {

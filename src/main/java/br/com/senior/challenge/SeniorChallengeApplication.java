@@ -12,8 +12,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 @Import({SpringDataRestConfiguration.class, BeanValidatorPluginsConfiguration.class})
 public class SeniorChallengeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SeniorChallengeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SeniorChallengeApplication.class, args);
+    }
 
 }

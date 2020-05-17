@@ -3,7 +3,6 @@ package br.com.senior.challenge.builder;
 import br.com.senior.challenge.entities.Item;
 import br.com.senior.challenge.entities.SalesOrder;
 import br.com.senior.challenge.entities.SalesOrderItem;
-import br.com.senior.challenge.entities.enums.OrderStatus;
 
 import java.math.BigDecimal;
 

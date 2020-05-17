@@ -44,7 +44,7 @@ class ApiError {
     /**
      * Adiciona uma mensagem de erro ligada a um campo
      *
-     * @param field Campo ligado à mensagem de erro
+     * @param field   Campo ligado à mensagem de erro
      * @param message Mensagem de erro
      */
     public void addError(String field, String message) {
@@ -54,9 +54,9 @@ class ApiError {
     /**
      * Adiciona uma mensagem de erro ligada a um campo com uma ajuda
      *
-     * @param field Campo ligado à mensagem de erro
+     * @param field   Campo ligado à mensagem de erro
      * @param message Mensagem de erro
-     * @param helper Ajuda relacionado à mensagem e ao campo
+     * @param helper  Ajuda relacionado à mensagem e ao campo
      */
     public void addError(String field, String message, String helper) {
         addError(new Error(field, message, helper));

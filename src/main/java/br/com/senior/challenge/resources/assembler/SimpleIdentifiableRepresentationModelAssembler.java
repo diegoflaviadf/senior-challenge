@@ -38,21 +38,23 @@ public abstract class SimpleIdentifiableRepresentationModelAssembler<T> implemen
     /**
      * A {@link Class} depicting the object's type.
      */
-    @Getter private final Class<?> resourceType;
+    @Getter
+    private final Class<?> resourceType;
 
     /**
      * Default base path as empty.
      */
-    @Getter @Setter
+    @Getter
+    @Setter
     private String basePath = "";
 
     /**
      * Default a assembler based on Spring MVC controller, resource type, and {@link LinkRelationProvider}. With this
      * combination of information, resources can be defined.
      *
-     * @see #setBasePath(String) to adjust base path to something like "/api"/
      * @param controllerClass - Spring MVC controller to base links off of
      * @param relProvider
+     * @see #setBasePath(String) to adjust base path to something like "/api"/
      */
     public SimpleIdentifiableRepresentationModelAssembler(Class<?> controllerClass, LinkRelationProvider relProvider) {
 

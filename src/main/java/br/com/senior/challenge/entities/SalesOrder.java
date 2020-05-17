@@ -50,7 +50,7 @@ public class SalesOrder extends AbstractBaseEntity {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @Digits(integer=5, fraction=2, message = "field.digits")
+    @Digits(integer = 5, fraction = 2, message = "field.digits")
     @Column(name = "VL_DISCOUNT", precision = 5, scale = 2)
     private BigDecimal discount;
 

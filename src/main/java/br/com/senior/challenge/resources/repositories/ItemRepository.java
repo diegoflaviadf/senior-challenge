@@ -26,5 +26,5 @@ public interface ItemRepository extends
     default void customize(QuerydslBindings bindings, QItem item) {
         bindings.bind(String.class).first((SingleValueBinding<StringPath, String>) StringExpression::containsIgnoreCase);
     }
-    
+
 }

@@ -144,10 +144,10 @@ public class SalesOrderItemControllerTest {
                 .build();
         MvcResult mvcResult = performItem("", HttpMethod.POST, item, status().isOk());
         item = read(mvcResult, Item.class);
-        if (!active){
-            mvcResult = performItem("/" + item.getId() +  "/deactivate", HttpMethod.POST, item, status().isOk());
+        if (!active) {
+            mvcResult = performItem("/" + item.getId() + "/deactivate", HttpMethod.POST, item, status().isOk());
             return read(mvcResult, Item.class);
-        }else {
+        } else {
             return item;
         }
     }

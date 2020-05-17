@@ -35,7 +35,7 @@ public class ItemProcessor implements RepresentationModelProcessor<EntityModel<I
                     linkTo(controller.findById(content.getId())).withSelfRel(),
                     basePath));
 
-            if (content.getActive().equals(Boolean.TRUE)){
+            if (content.getActive().equals(Boolean.TRUE)) {
                 model.add(applyBasePath( //
                         linkTo(controller.deactivate(content.getId()))
                                 .withRel("deactivate"),

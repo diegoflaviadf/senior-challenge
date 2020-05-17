@@ -3,7 +3,6 @@ package br.com.senior.challenge.controllers.handlers;
 import br.com.senior.challenge.exceptions.BusinessException;
 import br.com.senior.challenge.exceptions.NotFoundException;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,7 +32,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private final MessageSource messageSource;
     private final ValidationExceptionHandler validationExceptionHandler;
 
-    public GlobalExceptionHandler(MessageSource messageSource, ValidationExceptionHandler validationExceptionHandler){
+    public GlobalExceptionHandler(MessageSource messageSource, ValidationExceptionHandler validationExceptionHandler) {
         this.messageSource = messageSource;
         this.validationExceptionHandler = validationExceptionHandler;
     }

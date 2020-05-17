@@ -46,7 +46,7 @@ public class SalesOrderRules {
      * Retorna uma lista paginada {@link PagedModel} de uma representação {@link EntityModel} de um {@link SalesOrder}
      *
      * @param predicate Query adicional
-     * @param pageable Paginação
+     * @param pageable  Paginação
      * @return {@link PagedModel} de uma representação {@link EntityModel} de um {@link SalesOrder}
      */
     public PagedModel<EntityModel<SalesOrder>> findAll(Predicate predicate, Pageable pageable) {
@@ -80,7 +80,7 @@ public class SalesOrderRules {
      * Caso não encontre será lançado um {@link NotFoundException}
      * Caso o pedido não esteja OPENNED será lançado {@link BusinessException}.
      *
-     * @param id ID de um {@link SalesOrder}
+     * @param id            ID de um {@link SalesOrder}
      * @param orderToUpdate {@link SalesOrder} para salvar
      * @return Representação {@link EntityModel} de um {@link SalesOrder}
      */
@@ -137,7 +137,7 @@ public class SalesOrderRules {
     /**
      * Altera o status de um {@link SalesOrder}, conforme flag. Caso não seja possível será lançado um {@link BusinessException)
      *
-     * @param id ID de um {@link Item}
+     * @param id   ID de um {@link Item}
      * @param flag {@link Boolean}
      * @return Representação {@link EntityModel} de um {@link Item}
      */
@@ -147,7 +147,7 @@ public class SalesOrderRules {
             order.setStatus(status);
             return assembler.toModel(repository.save(order));
         }
-        throw new BusinessException("state.transitioning.notValid", order.getStatus(),  status);
+        throw new BusinessException("state.transitioning.notValid", order.getStatus(), status);
     }
 
     /**
@@ -156,8 +156,8 @@ public class SalesOrderRules {
      *
      * @param order {@link SalesOrder} para verificar status
      */
-    public void validateOpenned(SalesOrder order){
-        if (!order.getStatus().equals(OrderStatus.OPENNED)){
+    public void validateOpenned(SalesOrder order) {
+        if (!order.getStatus().equals(OrderStatus.OPENNED)) {
             throw new BusinessException("salesOrder.status.only.openned");
         }
     }
@@ -179,7 +179,8 @@ public class SalesOrderRules {
      * @return {@link SalesOrder}
      */
     public SalesOrder recalculate(SalesOrder salesOrder) {
-        if (salesOrder.getId() != null) repository.findById(salesOrder.getId()).ifPresent(order -> salesOrder.setItens(order.getItens()));
+        if (salesOrder.getId() != null)
+            repository.findById(salesOrder.getId()).ifPresent(order -> salesOrder.setItens(order.getItens()));
         updateTotal(salesOrder);
         applyDiscount(salesOrder);
         return salesOrder;

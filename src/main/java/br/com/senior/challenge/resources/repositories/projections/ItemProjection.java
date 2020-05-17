@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 @Projection(
         name = "itemProjection",
-        types = { Item.class })
+        types = {Item.class})
 public interface ItemProjection {
 
     String getName();

@@ -10,14 +10,14 @@ import java.net.URISyntaxException;
  */
 public final class ControllerUtils {
 
-    private ControllerUtils(){
+    private ControllerUtils() {
         //Utility class
     }
 
     /**
      * Adjust the {@link Link} such that it starts at {@literal basePath}.
      *
-     * @param link - link presumably supplied via Spring HATEOAS
+     * @param link     - link presumably supplied via Spring HATEOAS
      * @param basePath - base path provided by Spring Data REST
      * @return new {@link Link} with these two values melded together
      */
@@ -30,7 +30,7 @@ public final class ControllerUtils {
             newUri = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), //
                     uri.getPort(), basePath + uri.getPath(), uri.getQuery(), uri.getFragment());
         } catch (URISyntaxException e) {
-            throw new IllegalArgumentException("Link não é válido "+uri);
+            throw new IllegalArgumentException("Link não é válido " + uri);
         }
 
         return new Link(newUri.toString(), link.getRel());

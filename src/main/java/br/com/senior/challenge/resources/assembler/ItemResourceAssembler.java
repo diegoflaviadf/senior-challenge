@@ -5,8 +5,6 @@ import br.com.senior.challenge.entities.Item;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Component;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-
 @Component
 public class ItemResourceAssembler extends SimpleIdentifiableRepresentationModelAssembler<Item> {
 

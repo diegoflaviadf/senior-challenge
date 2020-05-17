@@ -7,35 +7,35 @@ public class ItemBuilder {
 
     private final Item item;
 
-    private ItemBuilder(Item item){
+    private ItemBuilder(Item item) {
         this.item = item;
     }
 
-    public static ItemBuilder newItem(){
+    public static ItemBuilder newItem() {
         return new ItemBuilder(new Item());
     }
 
-    public ItemBuilder withName(String value){
+    public ItemBuilder withName(String value) {
         item.setName(value);
         return this;
     }
 
-    public ItemBuilder withType(ItemType value){
+    public ItemBuilder withType(ItemType value) {
         item.setType(value);
         return this;
     }
 
-    public ItemBuilder withDescription(String value){
+    public ItemBuilder withDescription(String value) {
         item.setDescription(value);
         return this;
     }
 
-    public ItemBuilder withActive(Boolean value){
+    public ItemBuilder withActive(Boolean value) {
         item.setActive(value);
         return this;
     }
 
-    public Item build(){
+    public Item build() {
         return item;
     }
 

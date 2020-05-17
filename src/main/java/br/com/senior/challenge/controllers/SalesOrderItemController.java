@@ -2,7 +2,6 @@ package br.com.senior.challenge.controllers;
 
 import br.com.senior.challenge.entities.SalesOrderItem;
 import br.com.senior.challenge.resources.repositories.SalesOrderItemRepository;
-import br.com.senior.challenge.resources.repositories.SalesOrderRepository;
 import br.com.senior.challenge.resources.rules.SalesOrderItemRules;
 import com.querydsl.core.types.Predicate;
 import io.swagger.annotations.Api;

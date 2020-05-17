@@ -92,7 +92,7 @@ public class ValidationExceptionHandler extends ResponseEntityExceptionHandler {
      * Retorna uma mensagem tratada para um campo
      *
      * @param message Mensagem
-     * @param field Campo
+     * @param field   Campo
      * @return Mensagem tratada para um campo
      */
     private String getMessage(String message, String field) {
@@ -108,7 +108,7 @@ public class ValidationExceptionHandler extends ResponseEntityExceptionHandler {
      * Retorna uma ajuda para um campo e mensagem
      *
      * @param message Mensagem
-     * @param field Campo
+     * @param field   Campo
      * @return Ajuda tratada para um campo
      */
     private String getFieldHelper(String message, String field) {
@@ -123,7 +123,7 @@ public class ValidationExceptionHandler extends ResponseEntityExceptionHandler {
     /**
      * Sobrescereve atributos entre chaves ({att}) da mensagem
      *
-     * @param message Mensagem
+     * @param message             Mensagem
      * @param constraintViolation Violação de integridade {@link ConstraintViolation}
      * @return Ajuda tratada para um campo
      */

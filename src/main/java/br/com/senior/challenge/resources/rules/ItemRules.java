@@ -3,8 +3,8 @@ package br.com.senior.challenge.resources.rules;
 import br.com.senior.challenge.entities.Item;
 import br.com.senior.challenge.exceptions.BusinessException;
 import br.com.senior.challenge.exceptions.NotFoundException;
-import br.com.senior.challenge.resources.repositories.ItemRepository;
 import br.com.senior.challenge.resources.assembler.ItemResourceAssembler;
+import br.com.senior.challenge.resources.repositories.ItemRepository;
 import com.querydsl.core.types.Predicate;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedResourcesAssembler;
@@ -34,7 +34,7 @@ public class ItemRules {
      * Retorna uma lista paginada {@link PagedModel} de uma representação {@link EntityModel} de {@link Item}
      *
      * @param predicate Query adicional
-     * @param pageable Paginação
+     * @param pageable  Paginação
      * @return {@link PagedModel} de uma representação {@link EntityModel} de um {@link Item}
      */
     public PagedModel<EntityModel<Item>> findAll(Predicate predicate, Pageable pageable) {
@@ -45,7 +45,7 @@ public class ItemRules {
      * Retorna uma representação {@link EntityModel} de um {@link Item}. Caso não encontre será lançado um {@link NotFoundException}
      *
      * @param id ID de um {@link Item}
-     * @return  {@link EntityModel} de um {@link Item}
+     * @return {@link EntityModel} de um {@link Item}
      */
     public EntityModel<Item> findById(UUID id) {
         Item item = repository.findById(id).orElseThrow(() -> new NotFoundException(id));
@@ -66,7 +66,7 @@ public class ItemRules {
     /**
      * Atualiza e salva um {@link Item}. Caso não encontre será lançado um {@link NotFoundException}
      *
-     * @param id ID de um {@link Item}
+     * @param id           ID de um {@link Item}
      * @param itemToUpdate {@link Item} para salvar
      * @return Representação {@link EntityModel} de um {@link Item}
      */
@@ -115,7 +115,7 @@ public class ItemRules {
     /**
      * Altera o status de um {@link Item}, conforme flag. Caso não seja possível será lançado um {@link BusinessException)
      *
-     * @param id ID de um {@link Item}
+     * @param id   ID de um {@link Item}
      * @param flag {@link Boolean}
      * @return Representação {@link EntityModel} de um {@link Item}
      */
@@ -125,6 +125,6 @@ public class ItemRules {
             item.setActive(flag);
             return assembler.toModel(repository.save(item));
         }
-        throw new BusinessException("state.transitioning.notValid", item.getActive(),  flag);
+        throw new BusinessException("state.transitioning.notValid", item.getActive(), flag);
     }
 }

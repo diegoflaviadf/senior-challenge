@@ -4,7 +4,6 @@ import br.com.senior.challenge.entities.Item;
 import br.com.senior.challenge.entities.QSalesOrderItem;
 import br.com.senior.challenge.entities.SalesOrder;
 import br.com.senior.challenge.entities.SalesOrderItem;
-import br.com.senior.challenge.entities.enums.OrderStatus;
 import br.com.senior.challenge.exceptions.BusinessException;
 import br.com.senior.challenge.exceptions.NotFoundException;
 import br.com.senior.challenge.resources.assembler.SalesOrderItemResourceAssembler;
@@ -41,9 +40,9 @@ public class SalesOrderItemRules {
     /**
      * Retorna uma lista paginada {@link PagedModel} de uma representação {@link EntityModel} de {@link SalesOrderItem}
      *
-     * @param id ID do {@link SalesOrder}
+     * @param id        ID do {@link SalesOrder}
      * @param predicate Query adicional
-     * @param pageable Paginação
+     * @param pageable  Paginação
      * @return Lista paginada
      */
     public PagedModel<EntityModel<SalesOrderItem>> findByOrderId(UUID id, Predicate predicate, Pageable pageable) {
@@ -55,7 +54,7 @@ public class SalesOrderItemRules {
      * Retorna uma representação {@link EntityModel} de {@link SalesOrderItem}.  Caso não encontre será lançado um {@link NotFoundException}
      *
      * @param orderId ID do {@link SalesOrder}
-     * @param id ID do {@link SalesOrderItem}
+     * @param id      ID do {@link SalesOrderItem}
      * @return {@link EntityModel} de {@link SalesOrderItem}
      */
     public EntityModel<SalesOrderItem> findByOrderIdAndId(UUID orderId, UUID id) {
@@ -68,7 +67,7 @@ public class SalesOrderItemRules {
      * Cria um {@link SalesOrderItem}.
      * Caso o pedido não esteja OPENNED será lançado {@link BusinessException}
      *
-     * @param order {@link SalesOrder} do {@link SalesOrderItem}
+     * @param order     {@link SalesOrder} do {@link SalesOrderItem}
      * @param orderItem {@link SalesOrderItem} para salvar
      * @return Representação {@link EntityModel} de um {@link SalesOrderItem}
      */
@@ -84,7 +83,7 @@ public class SalesOrderItemRules {
      * Caso não encontre um {@link SalesOrder} será lançado um {@link NotFoundException}
      * Caso o item não esteja ativo será lançado {@link BusinessException}
      *
-     * @param orderId ID do {@link SalesOrder} do {@link SalesOrderItem}
+     * @param orderId   ID do {@link SalesOrder} do {@link SalesOrderItem}
      * @param orderItem {@link SalesOrderItem} para salvar
      * @return Representação {@link EntityModel} de um {@link SalesOrderItem}
      */
@@ -98,7 +97,7 @@ public class SalesOrderItemRules {
     /**
      * Cria e salva um {@link SalesOrderItem}
      *
-     * @param orderId ID de um {@link SalesOrder}
+     * @param orderId   ID de um {@link SalesOrder}
      * @param orderItem {@link SalesOrderItem} para salvar
      * @return Representação de um {@link SalesOrderItem}
      */
@@ -112,8 +111,8 @@ public class SalesOrderItemRules {
      * Caso o pedido não esteja OPENNED será lançado {@link BusinessException}.
      * Caso não encontre será lançado um {@link NotFoundException}
      *
-     * @param orderId ID de um {@link SalesOrder}
-     * @param id ID de um {@link SalesOrderItem}
+     * @param orderId           ID de um {@link SalesOrder}
+     * @param id                ID de um {@link SalesOrderItem}
      * @param orderItemToUpdate {@link SalesOrderItem} para salvar
      * @return Representação {@link EntityModel} de um {@link SalesOrderItem}
      */
@@ -133,8 +132,8 @@ public class SalesOrderItemRules {
     /**
      * Atualiza e salva um {@link SalesOrderItem}. Caso não encontre será lançado um {@link NotFoundException}
      *
-     * @param orderId ID de um {@link SalesOrder}
-     * @param id ID de um {@link SalesOrderItem}
+     * @param orderId           ID de um {@link SalesOrder}
+     * @param id                ID de um {@link SalesOrderItem}
      * @param orderItemToUpdate {@link SalesOrderItem} para salvar
      * @return Representação {@link EntityModel} de um {@link SalesOrderItem}
      */
@@ -149,7 +148,7 @@ public class SalesOrderItemRules {
      * Caso o pedido não esteja OPENNED será lançado {@link BusinessException}.
      *
      * @param orderId ID de um @link SalesOrder}
-     * @param id ID de um {@link SalesOrderItem}
+     * @param id      ID de um {@link SalesOrderItem}
      * @return Representação {@link EntityModel} de um {@link SalesOrderItem}
      */
     public EntityModel<SalesOrderItem> delete(UUID orderId, UUID id) {
@@ -167,7 +166,7 @@ public class SalesOrderItemRules {
      * @param item {@link Item} para verificar se está ativo
      */
     private void validateActiveItem(Item item) {
-        if (item.getActive().equals(Boolean.FALSE)){
+        if (item.getActive().equals(Boolean.FALSE)) {
             throw new BusinessException("salesOrder.item.deactive");
         }
     }

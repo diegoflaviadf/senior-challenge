@@ -10,8 +10,8 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelProcessor;
 import org.springframework.stereotype.Component;
 
-import static br.com.senior.challenge.entities.enums.OrderStatus.isValid;
 import static br.com.senior.challenge.controllers.utils.ControllerUtils.applyBasePath;
+import static br.com.senior.challenge.entities.enums.OrderStatus.isValid;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 

@@ -10,7 +10,7 @@ public final class EntityConstraints {
     public static final String FK_SALES_ORDER_SALES_ORDER_ITEM = "FK_SALES_ORDER_SALES_ORDER_ITEM";
     public static final String FK_SALES_ORDER_ITEM = "FK_SALES_ORDER_ITEM";
 
-    private EntityConstraints(){
+    private EntityConstraints() {
         //Utility Class
     }
 
