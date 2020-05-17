@@ -1,6 +1,7 @@
 package br.com.senior.challenge.controllers;
 
 import br.com.senior.challenge.entities.SalesOrder;
+import br.com.senior.challenge.resources.repositories.SalesOrderRepository;
 import br.com.senior.challenge.resources.rules.SalesOrderRules;
 import com.querydsl.core.types.Predicate;
 import io.swagger.annotations.Api;
@@ -28,7 +29,7 @@ public class SalesOrderController {
 
     @ApiOperation("Lista todos os pedidos cadastrados")
     @GetMapping("/sales-order")
-    public ResponseEntity<PagedModel<EntityModel<SalesOrder>>> findAll(@QuerydslPredicate(root = SalesOrder.class/*, bindings = SalesOrderRepository.class*/) Predicate predicate, Pageable pageable) {
+    public ResponseEntity<PagedModel<EntityModel<SalesOrder>>> findAll(@QuerydslPredicate(root = SalesOrder.class, bindings = SalesOrderRepository.class) Predicate predicate, Pageable pageable) {
         return ResponseEntity.ok(rules.findAll(predicate, pageable));
     }
 
