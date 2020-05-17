@@ -19,7 +19,7 @@ Realize o build do projeto utilizando Maven.
 Execute:
  
 ```
-java -jar senior-challenge.jar
+java -jar senior-challenge-0.0.1-SNAPSHOT.jar
 ```
 
 ## Documentação da API
